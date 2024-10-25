@@ -1,0 +1,13 @@
+[project]
+name = "pack-cycle-analysis"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ipykernel>=6.29.5",
+    "matplotlib>=3.9.2",
+    "pandas>=2.2.3",
+    "pyarrow>=17.0.0",
+    "scipy>=1.14.1",
+]
