@@ -19,10 +19,10 @@ The following battery packs were used for testing:
 
 | Battery Pack | Cell Pack | BMS |
 | ------------ | --------- | --- |
-| [pack-1] | 1591 1836 | 7685 7468 |
-| [pack-2] | 7266 4758 | 2155 6057 |
-| [pack-3] | 7948 4127 | 8734 2253 |
-| [pack-4] | 5874 5252 | 8464 7534 |
+| [1757 8979][pack-1] | 1591 1836 | 7685 7468 |
+| [8615 1351][pack-2] | 7266 4758 | 2155 6057 |
+| [7267 4120][pack-3] | 7948 4127 | 8734 2253 |
+| [1506 4809][pack-4] | 5874 5252 | 8464 7534 |
 
 Each pack has the following electrical properties:
 
