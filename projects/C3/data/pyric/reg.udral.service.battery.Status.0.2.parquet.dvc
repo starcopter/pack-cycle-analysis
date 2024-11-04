@@ -1,0 +1,5 @@
+outs:
+- md5: b4ab6d3a067a74134bb6d2e23f523785
+  size: 315720445
+  hash: md5
+  path: reg.udral.service.battery.Status.0.2.parquet

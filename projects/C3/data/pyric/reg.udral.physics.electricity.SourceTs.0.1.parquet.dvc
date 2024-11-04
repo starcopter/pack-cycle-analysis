@@ -1,0 +1,5 @@
+outs:
+- md5: 9ed2432e5e44e8fc5c8f264a62456112
+  size: 2053548020
+  hash: md5
+  path: reg.udral.physics.electricity.SourceTs.0.1.parquet

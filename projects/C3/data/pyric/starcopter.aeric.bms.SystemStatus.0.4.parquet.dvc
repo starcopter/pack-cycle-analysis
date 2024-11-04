@@ -1,0 +1,5 @@
+outs:
+- md5: 1496f9dd82da68d2d6fb632ed5ef6d9c
+  size: 1308648842
+  hash: md5
+  path: starcopter.aeric.bms.SystemStatus.0.4.parquet
