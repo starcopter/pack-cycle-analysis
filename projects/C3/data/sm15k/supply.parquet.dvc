@@ -1,5 +1,5 @@
 outs:
-- md5: f7bfbe31856c997033ee673862cc5600
-  size: 87403947
+- md5: 39c217f5fe1cca2c2159186a9c34ba6f
+  size: 108048252
   hash: md5
   path: supply.parquet

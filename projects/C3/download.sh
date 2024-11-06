@@ -5,11 +5,11 @@ base=$PWD
 pushd ~/src/parflux
 source .envrc
 
-nice parflux -vv --start "2024-10-25 18:31:00" get \
+nice parflux -vv --start "2024-10-25 18:31:00" --stop "2024-11-06 14:59:00" get \
 	--dest $base/data \
 	sm15k/supply
 
-nice parflux -vv --start "2024-10-25 18:31:00" get \
+nice parflux -vv --start "2024-10-25 18:31:00" --stop "2024-11-06 14:59:00" get \
 	--dest $base/data \
 	--filter 'r.logger == "pyric-t420-lasse"' \
 	pyric/reg.udral.physics.electricity.SourceTs.0.1 \
