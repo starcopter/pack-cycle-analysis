@@ -84,4 +84,4 @@ The standard deviation of the pack current during discharge does not change much
 
 The data files for this project are stored via [DVC](https://dvc.org/) and can be retrieved by running `dvc pull`.
 
-S3 credentials for the scaleway `dlake` bucket are required. Contact @Finwood if you require access.
+S3 credentials for the scaleway `dlake` bucket are required. Contact [Finwood](https://github.com/Finwood) if you require access.
