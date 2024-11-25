@@ -1,0 +1,59 @@
+schema: '2.0'
+stages:
+  convert-parflux-output:
+    cmd: nice duckdb < 01_convert.sql
+    deps:
+    - path: 01_convert.sql
+      hash: md5
+      md5: 84d804f01d5ec3d79fce4837e5e11ff8
+      size: 2571
+    - path: data/pyric/reg.udral.physics.electricity.SourceTs.0.1.parquet
+      hash: md5
+      md5: 0f8378bea051640b8a4d73e6e2d3c3e6
+      size: 2539762502
+    - path: data/pyric/reg.udral.service.battery.Status.0.2.parquet
+      hash: md5
+      md5: f8f614e8252b02c116a073fcb74d7072
+      size: 390162229
+    - path: data/pyric/starcopter.aeric.bms.SystemStatus.0.4.parquet
+      hash: md5
+      md5: 49992056f2db30bb8b2bcc1f3291809c
+      size: 1620197194
+    - path: data/pyric/starcopter.aeric.bms.Temperatures.0.1.parquet
+      hash: md5
+      md5: 2ad42791a0eaf6583ce7e97da8850494
+      size: 767569961
+    - path: data/sm15k/supply.parquet
+      hash: md5
+      md5: 39c217f5fe1cca2c2159186a9c34ba6f
+      size: 108048252
+    outs:
+    - path: data/packs.parquet
+      hash: md5
+      md5: 09f5a830b10b0535336d0ba0585423c3
+      size: 241846724
+    - path: data/sm15k.parquet
+      hash: md5
+      md5: e7ae1bbc82af507fedddf2357c95aff8
+      size: 94150959
+  parse-cycles:
+    cmd: python 02_parse_cycles.py
+    deps:
+    - path: 02_parse_cycles.py
+      hash: md5
+      md5: ec03d3660596642872b4a727ee32a11e
+      size: 4106
+      isexec: true
+    - path: data/sm15k.parquet
+      hash: md5
+      md5: e7ae1bbc82af507fedddf2357c95aff8
+      size: 94150959
+    outs:
+    - path: data/cycles.csv
+      hash: md5
+      md5: 0d4240fa2c9e39aa33b45f677376a4fc
+      size: 27965
+    - path: data/cycles.parquet
+      hash: md5
+      md5: 7c429668c4f3205acffefc9e2c0bf509
+      size: 18957

@@ -18,5 +18,3 @@ nice parflux -vv --start "2024-10-25 18:31:00" --stop "2024-11-06 14:59:00" get 
 	pyric/starcopter.aeric.bms.Temperatures.0.1
 
 popd
-
-nice duckdb < convert.sql
