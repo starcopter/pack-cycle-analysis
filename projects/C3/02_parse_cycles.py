@@ -118,7 +118,7 @@ def main():
     cycles = parse_cycles()
 
     cycles.to_csv("data/cycles.csv")
-    cycles.to_parquet("data/cycles.parquet")
+    cycles.to_parquet("data/cycles.parquet", index=True)
 
 
 if __name__ == "__main__":

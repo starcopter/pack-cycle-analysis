@@ -41,8 +41,8 @@ stages:
     deps:
     - path: 02_parse_cycles.py
       hash: md5
-      md5: 1e0ebc3ff4411601752ba372dafaae8d
-      size: 4105
+      md5: 98749ac105bc83f3a7d1177d64de2012
+      size: 4117
       isexec: true
     - path: data/sm15k.parquet
       hash: md5
@@ -55,8 +55,8 @@ stages:
       size: 28563
     - path: data/cycles.parquet
       hash: md5
-      md5: 63cc364af2d89c9867fe45bedc9a4fcc
-      size: 18963
+      md5: 55ee940e30077efdc9f25ba6e2078951
+      size: 19988
   plot:
     cmd: python 03_plot.py
     deps:
@@ -70,8 +70,8 @@ stages:
       size: 5764
     - path: data/cycles.parquet
       hash: md5
-      md5: 63cc364af2d89c9867fe45bedc9a4fcc
-      size: 18963
+      md5: 55ee940e30077efdc9f25ba6e2078951
+      size: 19988
     - path: data/sm15k.parquet
       hash: md5
       md5: e7ae1bbc82af507fedddf2357c95aff8
@@ -93,3 +93,23 @@ stages:
       hash: md5
       md5: b7b01fa7175fe536cc749d24f5cee5ed
       size: 82108
+  standard-deviation:
+    cmd: python standard_deviation.py
+    deps:
+    - path: data/cycles.parquet
+      hash: md5
+      md5: 55ee940e30077efdc9f25ba6e2078951
+      size: 19988
+    - path: data/packs.parquet
+      hash: md5
+      md5: 09f5a830b10b0535336d0ba0585423c3
+      size: 241846724
+    - path: standard_deviation.py
+      hash: md5
+      md5: a9a49689298fc82438d92b6a6dc4fab3
+      size: 2497
+    outs:
+    - path: img/current-in-discharge.png
+      hash: md5
+      md5: a517d43479da72521969f28e57437e19
+      size: 422084

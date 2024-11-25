@@ -27,7 +27,7 @@ stages:
     - ../UN38.3/cycles.csv
     - data/cycles.parquet
     - data/sm15k.parquet
-    plots:
+    outs:
     - img/aging-profile.png:
         cache: false
     - img/charge-per-cycle.png:
@@ -35,4 +35,13 @@ stages:
     - img/energy-per-cycle.png:
         cache: false
     - img/relative-energy-per-cycle.png:
+        cache: false
+  standard-deviation:
+    cmd: python standard_deviation.py
+    deps:
+    - standard_deviation.py
+    - data/cycles.parquet
+    - data/packs.parquet
+    outs:
+    - img/current-in-discharge.png:
         cache: false

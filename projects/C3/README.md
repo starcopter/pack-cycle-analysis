@@ -65,6 +65,7 @@ Take a look at the different source files for individual analysis steps:
 - [02_parse_cycles.py](./02_parse_cycles.py): Python script to find and label charge and discharge phases in SM15K logging data.
   Generates the [data/cycles.csv](./data/cycles.csv) summary file.
 - [03_plot.py](./03_plot.py): Python script to plot aging profile and other charts.
+- [standard_deviation.py](./standard_deviation.py): Python script to calculate and plot the standard deviation of pack current during discharge.
 
 ## Results
 
@@ -73,6 +74,10 @@ As expected, the available electrical charge and energy decrease with increasing
 ![Electrical Charge per Cycle](./img/charge-per-cycle.png)  
 ![Energy per Cycle](./img/energy-per-cycle.png)  
 ![Relative Energy per Cycle](./img/relative-energy-per-cycle.png)  
+
+The standard deviation of the pack current during discharge does not change much over the course of the aging test:
+
+![Standard Deviation of Current in Discharge](./img/current-in-discharge.png)
 
 ## Hacking
 
