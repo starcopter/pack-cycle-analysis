@@ -106,10 +106,38 @@ stages:
       size: 241846724
     - path: standard_deviation.py
       hash: md5
-      md5: a9a49689298fc82438d92b6a6dc4fab3
-      size: 2497
+      md5: 174bb4a82333b9e03701a36bb380daad
+      size: 2493
     outs:
     - path: img/current-in-discharge.png
       hash: md5
       md5: a517d43479da72521969f28e57437e19
       size: 422084
+  plot-discharge-curves:
+    cmd: python plot_discharge_curves.py
+    deps:
+    - path: ../UN38.3/cycles.csv
+      hash: md5
+      md5: 19224c818468873111e1981279c1dd4a
+      size: 5957
+    - path: ../UN38.3/source.parquet
+      hash: md5
+      md5: c7a695d152e1a0d836f2cc280a5a8d72
+      size: 26727211
+    - path: data/cycles.parquet
+      hash: md5
+      md5: 55ee940e30077efdc9f25ba6e2078951
+      size: 19988
+    - path: data/sm15k.parquet
+      hash: md5
+      md5: e7ae1bbc82af507fedddf2357c95aff8
+      size: 94150959
+    - path: plot_discharge_curves.py
+      hash: md5
+      md5: 15988593ade224fdef91d1f0de973e0b
+      size: 3455
+    outs:
+    - path: img/discharge-curves.png
+      hash: md5
+      md5: 27817a829b4b732519fcb45f4e3eb6c6
+      size: 143583

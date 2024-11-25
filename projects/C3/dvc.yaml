@@ -45,3 +45,14 @@ stages:
     outs:
     - img/current-in-discharge.png:
         cache: false
+  plot-discharge-curves:
+    cmd: python plot_discharge_curves.py
+    deps:
+    - plot_discharge_curves.py
+    - data/cycles.parquet
+    - data/sm15k.parquet
+    - ../UN38.3/cycles.csv
+    - ../UN38.3/source.parquet
+    outs:
+    - img/discharge-curves.png:
+        cache: false

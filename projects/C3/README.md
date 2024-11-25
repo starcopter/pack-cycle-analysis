@@ -66,6 +66,7 @@ Take a look at the different source files for individual analysis steps:
   Generates the [data/cycles.csv](./data/cycles.csv) summary file.
 - [03_plot.py](./03_plot.py): Python script to plot aging profile and other charts.
 - [standard_deviation.py](./standard_deviation.py): Python script to calculate and plot the standard deviation of pack current during discharge.
+- [plot_discharge_curves.py](./plot_discharge_curves.py): Python script to plot [discharge curves](./img/discharge-curves.png)
 
 ## Results
 
