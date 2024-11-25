@@ -1,0 +1,58 @@
+stages:
+  convert-parflux-output:
+    cmd: nice duckdb < 01_convert.sql
+    deps:
+    - 01_convert.sql
+    - data/pyric/reg.udral.physics.electricity.SourceTs.0.1.parquet
+    - data/pyric/reg.udral.service.battery.Status.0.2.parquet
+    - data/pyric/starcopter.aeric.bms.SystemStatus.0.4.parquet
+    - data/pyric/starcopter.aeric.bms.Temperatures.0.1.parquet
+    - data/sm15k/supply.parquet
+    outs:
+    - data/packs.parquet
+    - data/sm15k.parquet
+  parse-cycles:
+    cmd: python 02_parse_cycles.py
+    deps:
+    - 02_parse_cycles.py
+    - data/sm15k.parquet
+    outs:
+    - data/cycles.csv:
+        cache: false
+    - data/cycles.parquet
+  plot:
+    cmd: python 03_plot.py
+    deps:
+    - 03_plot.py
+    - ../UN38.3/cycles.csv
+    - data/cycles.parquet
+    - data/sm15k.parquet
+    outs:
+    - img/aging-profile.png:
+        cache: false
+    - img/charge-per-cycle.png:
+        cache: false
+    - img/energy-per-cycle.png:
+        cache: false
+    - img/relative-energy-per-cycle.png:
+        cache: false
+  standard-deviation:
+    cmd: python standard_deviation.py
+    deps:
+    - standard_deviation.py
+    - data/cycles.parquet
+    - data/packs.parquet
+    outs:
+    - img/current-in-discharge.png:
+        cache: false
+  plot-discharge-curves:
+    cmd: python plot_discharge_curves.py
+    deps:
+    - plot_discharge_curves.py
+    - data/cycles.parquet
+    - data/sm15k.parquet
+    - ../UN38.3/cycles.csv
+    - ../UN38.3/source.parquet
+    outs:
+    - img/discharge-curves.png:
+        cache: false

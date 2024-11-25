@@ -1,0 +1,6 @@
+[core]
+    autostage = true
+    remote = scaleway
+['remote "scaleway"']
+    url = s3://dlake/dvc/pack-data
+    endpointurl = https://s3.fr-par.scw.cloud

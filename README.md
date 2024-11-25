@@ -5,7 +5,6 @@ This repository contains battery pack cycling data, and tools/scripts to analyze
 ## Repository Layout
 
 Each project or test run is contained in its own folder under `projects/`.
-Currently there is only one project, `UN38.3`.
 
 ## Setup Instructions
 
@@ -15,6 +14,5 @@ Currently there is only one project, `UN38.3`.
 4. Install the project dependencies: `uv sync`
 5. Open the project in VSCode, and start working!
 
-## Usage
-
-Refer to the `Analysis.ipynb` notebook in the `projects/UN38.3/` directory for data analysis examples and visualizations.
+Larger data files are versioned with [DVC](https://dvc.org/) and reside in the `dlake` S3 bucket on Scaleway.
+Contact [Finwood](https://github.com/Finwood) if you need access.

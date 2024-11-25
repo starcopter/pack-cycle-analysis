@@ -1,0 +1,143 @@
+schema: '2.0'
+stages:
+  convert-parflux-output:
+    cmd: nice duckdb < 01_convert.sql
+    deps:
+    - path: 01_convert.sql
+      hash: md5
+      md5: 84d804f01d5ec3d79fce4837e5e11ff8
+      size: 2571
+    - path: data/pyric/reg.udral.physics.electricity.SourceTs.0.1.parquet
+      hash: md5
+      md5: 0f8378bea051640b8a4d73e6e2d3c3e6
+      size: 2539762502
+    - path: data/pyric/reg.udral.service.battery.Status.0.2.parquet
+      hash: md5
+      md5: f8f614e8252b02c116a073fcb74d7072
+      size: 390162229
+    - path: data/pyric/starcopter.aeric.bms.SystemStatus.0.4.parquet
+      hash: md5
+      md5: 49992056f2db30bb8b2bcc1f3291809c
+      size: 1620197194
+    - path: data/pyric/starcopter.aeric.bms.Temperatures.0.1.parquet
+      hash: md5
+      md5: 2ad42791a0eaf6583ce7e97da8850494
+      size: 767569961
+    - path: data/sm15k/supply.parquet
+      hash: md5
+      md5: 39c217f5fe1cca2c2159186a9c34ba6f
+      size: 108048252
+    outs:
+    - path: data/packs.parquet
+      hash: md5
+      md5: 09f5a830b10b0535336d0ba0585423c3
+      size: 241846724
+    - path: data/sm15k.parquet
+      hash: md5
+      md5: e7ae1bbc82af507fedddf2357c95aff8
+      size: 94150959
+  parse-cycles:
+    cmd: python 02_parse_cycles.py
+    deps:
+    - path: 02_parse_cycles.py
+      hash: md5
+      md5: 98749ac105bc83f3a7d1177d64de2012
+      size: 4117
+      isexec: true
+    - path: data/sm15k.parquet
+      hash: md5
+      md5: e7ae1bbc82af507fedddf2357c95aff8
+      size: 94150959
+    outs:
+    - path: data/cycles.csv
+      hash: md5
+      md5: a0dfe0cd17db404b70d0f4cfd4f7b1c2
+      size: 28563
+    - path: data/cycles.parquet
+      hash: md5
+      md5: 55ee940e30077efdc9f25ba6e2078951
+      size: 19988
+  plot:
+    cmd: python 03_plot.py
+    deps:
+    - path: ../UN38.3/cycles.csv
+      hash: md5
+      md5: 19224c818468873111e1981279c1dd4a
+      size: 5957
+    - path: 03_plot.py
+      hash: md5
+      md5: e912f2924f2792d76ef840c62feee9b6
+      size: 5764
+    - path: data/cycles.parquet
+      hash: md5
+      md5: 55ee940e30077efdc9f25ba6e2078951
+      size: 19988
+    - path: data/sm15k.parquet
+      hash: md5
+      md5: e7ae1bbc82af507fedddf2357c95aff8
+      size: 94150959
+    outs:
+    - path: img/aging-profile.png
+      hash: md5
+      md5: a6d41229d3dbe2f5ebc9fcfd7e6a5567
+      size: 184119
+    - path: img/charge-per-cycle.png
+      hash: md5
+      md5: b9a0e3d21b95c2bac995914a1d77d812
+      size: 83144
+    - path: img/energy-per-cycle.png
+      hash: md5
+      md5: 5a14a07df57120674951c1c92cea924a
+      size: 81978
+    - path: img/relative-energy-per-cycle.png
+      hash: md5
+      md5: b7b01fa7175fe536cc749d24f5cee5ed
+      size: 82108
+  standard-deviation:
+    cmd: python standard_deviation.py
+    deps:
+    - path: data/cycles.parquet
+      hash: md5
+      md5: 55ee940e30077efdc9f25ba6e2078951
+      size: 19988
+    - path: data/packs.parquet
+      hash: md5
+      md5: 09f5a830b10b0535336d0ba0585423c3
+      size: 241846724
+    - path: standard_deviation.py
+      hash: md5
+      md5: 174bb4a82333b9e03701a36bb380daad
+      size: 2493
+    outs:
+    - path: img/current-in-discharge.png
+      hash: md5
+      md5: a517d43479da72521969f28e57437e19
+      size: 422084
+  plot-discharge-curves:
+    cmd: python plot_discharge_curves.py
+    deps:
+    - path: ../UN38.3/cycles.csv
+      hash: md5
+      md5: 19224c818468873111e1981279c1dd4a
+      size: 5957
+    - path: ../UN38.3/source.parquet
+      hash: md5
+      md5: c7a695d152e1a0d836f2cc280a5a8d72
+      size: 26727211
+    - path: data/cycles.parquet
+      hash: md5
+      md5: 55ee940e30077efdc9f25ba6e2078951
+      size: 19988
+    - path: data/sm15k.parquet
+      hash: md5
+      md5: e7ae1bbc82af507fedddf2357c95aff8
+      size: 94150959
+    - path: plot_discharge_curves.py
+      hash: md5
+      md5: 15988593ade224fdef91d1f0de973e0b
+      size: 3455
+    outs:
+    - path: img/discharge-curves.png
+      hash: md5
+      md5: 27817a829b4b732519fcb45f4e3eb6c6
+      size: 143583
