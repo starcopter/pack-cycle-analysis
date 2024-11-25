@@ -1321,7 +1321,7 @@ wheels = [
 [[package]]
 name = "pack-cycle-analysis"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "dvc", extra = ["s3"] },
     { name = "ipykernel" },
