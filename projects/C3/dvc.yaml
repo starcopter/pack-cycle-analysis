@@ -20,3 +20,19 @@ stages:
     - data/cycles.csv:
         cache: false
     - data/cycles.parquet
+  plot:
+    cmd: python 03_plot.py
+    deps:
+    - 03_plot.py
+    - ../UN38.3/cycles.csv
+    - data/cycles.parquet
+    - data/sm15k.parquet
+    plots:
+    - img/aging-profile.png:
+        cache: false
+    - img/charge-per-cycle.png:
+        cache: false
+    - img/energy-per-cycle.png:
+        cache: false
+    - img/relative-energy-per-cycle.png:
+        cache: false

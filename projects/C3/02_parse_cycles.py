@@ -44,7 +44,7 @@ def parse_cycles() -> pd.DataFrame:
     )
     charge_end = (
         find_rising_edges(_current < 600e-3)
-        .pipe(refine_condition, fn=lambda df: df.current < -600e-3, df=sm15k)
+        .pipe(refine_condition, fn=lambda df: df.current < 600e-3, df=sm15k)
         .rename("charge_end")
     )
 

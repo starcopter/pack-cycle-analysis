@@ -41,8 +41,8 @@ stages:
     deps:
     - path: 02_parse_cycles.py
       hash: md5
-      md5: ec03d3660596642872b4a727ee32a11e
-      size: 4106
+      md5: 1e0ebc3ff4411601752ba372dafaae8d
+      size: 4105
       isexec: true
     - path: data/sm15k.parquet
       hash: md5
@@ -51,9 +51,45 @@ stages:
     outs:
     - path: data/cycles.csv
       hash: md5
-      md5: 0d4240fa2c9e39aa33b45f677376a4fc
-      size: 27965
+      md5: a0dfe0cd17db404b70d0f4cfd4f7b1c2
+      size: 28563
     - path: data/cycles.parquet
       hash: md5
-      md5: 7c429668c4f3205acffefc9e2c0bf509
-      size: 18957
+      md5: 63cc364af2d89c9867fe45bedc9a4fcc
+      size: 18963
+  plot:
+    cmd: python 03_plot.py
+    deps:
+    - path: ../UN38.3/cycles.csv
+      hash: md5
+      md5: 19224c818468873111e1981279c1dd4a
+      size: 5957
+    - path: 03_plot.py
+      hash: md5
+      md5: e912f2924f2792d76ef840c62feee9b6
+      size: 5764
+    - path: data/cycles.parquet
+      hash: md5
+      md5: 63cc364af2d89c9867fe45bedc9a4fcc
+      size: 18963
+    - path: data/sm15k.parquet
+      hash: md5
+      md5: e7ae1bbc82af507fedddf2357c95aff8
+      size: 94150959
+    outs:
+    - path: img/aging-profile.png
+      hash: md5
+      md5: a6d41229d3dbe2f5ebc9fcfd7e6a5567
+      size: 184119
+    - path: img/charge-per-cycle.png
+      hash: md5
+      md5: b9a0e3d21b95c2bac995914a1d77d812
+      size: 83144
+    - path: img/energy-per-cycle.png
+      hash: md5
+      md5: 5a14a07df57120674951c1c92cea924a
+      size: 81978
+    - path: img/relative-energy-per-cycle.png
+      hash: md5
+      md5: b7b01fa7175fe536cc749d24f5cee5ed
+      size: 82108

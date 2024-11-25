@@ -64,7 +64,7 @@ Take a look at the different source files for individual analysis steps:
 - [01_convert.sql](./01_convert.sql): DuckDB SQL to parse raw InfluxDB data into the [data/sm15k.parquet](./data/sm15k.parquet) and [data/packs.parquet](./data/packs.parquet) files.
 - [02_parse_cycles.py](./02_parse_cycles.py): Python script to find and label charge and discharge phases in SM15K logging data.
   Generates the [data/cycles.csv](./data/cycles.csv) summary file.
-- [03_Plot.ipynb](./03_Plot.ipynb): Jupyter notebook to plot aging profile and other charts.
+- [03_plot.py](./03_plot.py): Python script to plot aging profile and other charts.
 
 ## Results
 
